@@ -10,3 +10,8 @@ API dependency setup:
 Files:
 1. server.js
 2. ./lib/app.js
+
+Database and Testing dependency setup:
+1. npm init -y
+2. npm install --save-dev jest
+3. npm install pg
