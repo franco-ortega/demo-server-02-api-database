@@ -61,6 +61,9 @@ describe('demo tests', () => {
       }
     );
 
+    const response = await request(app)
+      .get('/api/v1/cats');
+
     expect(response.body).toEqual([catOne, catTwo]);
   });
 
