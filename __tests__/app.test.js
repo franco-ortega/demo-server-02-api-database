@@ -3,8 +3,6 @@ import pool from '../lib/utils/pool.js';
 import setup from '../data/setup.js';
 import app from '../lib/app.js';
 import Cat from '../lib/models/Cat.js';
-import { expect } from '@jest/globals';
-import { response } from 'express';
 
 describe('demo tests', () => {
   beforeEach(() => {
