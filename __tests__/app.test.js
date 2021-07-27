@@ -2,6 +2,9 @@ import request from 'supertest';
 import pool from '../lib/utils/pool.js';
 import setup from '../data/setup.js';
 import app from '../lib/app.js';
+import Cat from '../lib/models/Cat.js';
+import { expect } from '@jest/globals';
+import { response } from 'express';
 
 describe('demo tests', () => {
   beforeEach(() => {
@@ -38,4 +41,27 @@ describe('demo tests', () => {
       }
     );
   });
+
+  it('retrieves all cats via GET', async() => {
+    const catOne = await Cat.insert(
+      {
+        catName: 'Po',
+        breed: 'Scottish Fold',
+        furColor: 'grey',
+        age: 4
+      }
+    );
+
+    const catTwo = await Cat.insert(
+      {
+        catName: 'Rylo',
+        breed: 'Manx',
+        furColor: 'grey',
+        age: 10
+      }
+    );
+
+    expect(response.body).toEqual([catOne, catTwo]);
+  });
+
 });
