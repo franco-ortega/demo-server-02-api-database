@@ -1,10 +1,7 @@
 import request from 'supertest';
-import app from '../lib/app';
-import pool from '../lib/utils/pool';
-import setup from '../data/setup';
-// import { it } from '@jest/globals';
-import Cat from '../lib/models/Cat';
-import { expect } from '@jest/globals';
+import pool from '../lib/utils/pool.js';
+import setup from '../data/setup.js';
+import app from '../lib/app.js';
 
 describe('demo tests', () => {
   beforeEach(() => {
@@ -21,12 +18,12 @@ describe('demo tests', () => {
 
   it('creates a cat via POST', async() => {
     const response = await request(app)
-      .post('/cats')
+      .post('/api/v1/cats')
       .send(
         {
           catName: 'Fluffy',
-          breed: 'Russian Blue',
-          furColor: 'blue',
+          breed: 'Himalayan',
+          furColor: 'white',
           age: 5
         }
       );
@@ -35,8 +32,8 @@ describe('demo tests', () => {
       {
         id: 1,
         catName: 'Fluffy',
-        breed: 'Russian Blue',
-        furColor: 'blue',
+        breed: 'Himalayan',
+        furColor: 'white',
         age: 5
       }
     );
