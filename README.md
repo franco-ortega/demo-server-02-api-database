@@ -15,3 +15,8 @@ Database and Testing dependency setup:
 1. npm init -y
 2. npm install --save-dev jest
 3. npm install pg
+
+4. heroku login
+5. heroku create [appname]
+6. git push heroku main
+7. heroku addons:create heroku-postgresql:hobby-dev
